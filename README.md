@@ -1,6 +1,6 @@
-# ELF Binaries for Lambda Layer
+# Lambda Layers for ELF Binaries
 
-Sample code written for my blogpost on [Creating ELF Binaries for Lambda Layers](https://arionmiles.me/posts/lambda)
+Sample code written for my blogpost on [Creating AWS Lambda Layers for ELF Binaries](https://arionmiles.me/posts/lambda)
 
 1. `pip3 install --user requirements.txt`
 2. Run `aws configure` and add AWS Access, Secret Keys, and select your default region and response format (json).
