@@ -1,0 +1,24 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Serverless application to generate random identities.
+Resources:
+  RigFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: './src/'
+      Description: 'Serverless function for rig (random identity generator).'
+      MemorySize: 128
+      Timeout: 3
+      Policies:
+        # To be able to write logs to CloudWatch
+        - AWSLambdaBasicExecutionRole
+      Layers:
+        - Ref: RigLayer
+  RigLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      CompatibleRuntimes: 
+        - python3.8
+      ContentUri: './rig.zip'
